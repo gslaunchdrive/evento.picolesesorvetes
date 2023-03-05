@@ -13,9 +13,9 @@ $(document).ready(function () {
     }
 
     function redirectWhatsApp() {
-        // setTimeout(function () {
-        //     window.location.href = groupWhats;
-        // }, 20000);
+        setTimeout(function () {
+            window.location.href = groupWhats;
+        }, 20000);
     }
 
     loadConfigs();
