@@ -26,10 +26,6 @@ $(document).ready(function () {
         if (timeToInterested.seconds >= 0) {
             $('#superinteressado').hide();
         }
-
-        console.log(timeToInterested);
-
-        console.log(configs);
     }
 
     function removeParamAuth() {
@@ -167,12 +163,21 @@ $(document).ready(function () {
         }
     }
 
+    function verifyRedirectEndEvent(config) {
+        var endEvent = new Date(Date.parse(config.endEvent));
+        var timeToInterested = getTimeRemaining(endEvent);
+
+        if (timeToInterested.seconds >= 0) {
+            window.location.href=config.redirectEndEvent;
+        }
+    }
+
     function setupGeneralConfigs() {
 
         // checkLoadedCache();
         var config = JSON.parse(localStorage.getItem("data"))['configs'];
 
-        console.log(config);
+        verifyRedirectEndEvent(config);
 
         initializeClock('clock', config.endEvent);
         $('#grupo-whatsapp').attr("href", config.whatsapp);
