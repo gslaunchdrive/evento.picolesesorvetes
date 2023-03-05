@@ -167,7 +167,7 @@ $(document).ready(function () {
         var endEvent = new Date(Date.parse(config.endEvent));
         var timeToInterested = getTimeRemaining(endEvent);
 
-        if (timeToInterested.seconds >= 0) {
+        if (timeToInterested.seconds <= 0) {
             window.location.href=config.redirectEndEvent;
         }
     }
